@@ -1,0 +1,10 @@
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
