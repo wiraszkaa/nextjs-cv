@@ -46,7 +46,7 @@ const Skills = () => {
       <main className="main">
         <h1>Skills</h1>
         <div className={styles.skills}>
-          <Slider frames={frames} frame={{width: "31vw", aspectRatio: 0.7}}/>
+          <Slider frames={frames} frame={{width: "calc(20rem + 10vw)", aspectRatio: 0.7}}/>
         </div>
       </main>
     </>

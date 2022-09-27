@@ -46,7 +46,7 @@ const Me = () => {
                 <Image src={photo0} alt="0" layout="responsive" key="0"/>,
                 <Image src={photo1} alt="1" layout="responsive" key="1"/>,
               ]}
-              frame={{ width: "27vw", aspectRatio: 1 }}
+              frame={{ width: "calc(12rem + 14vw)", aspectRatio: 1 }}
             />
           </div>
         </div>

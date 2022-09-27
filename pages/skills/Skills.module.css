@@ -1,7 +1,12 @@
 .skills {
-    margin: 2rem 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  margin: 2rem 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.frame {
+  width: "35vw";
+  aspect-ratio: 0.8;
 }

@@ -1,23 +1,33 @@
 .description {
-    display: flex;
-    align-items: center;
-    text-align: justify;
-    width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  width: 80%;
+}
+
+.description p {
+  width: 40%;
 }
 
 .photo {
-    position: relative;
-    height: 27vw;
-    aspect-ratio: 1;
+  position: relative;
+  height: calc(12rem + 14vw);
+  aspect-ratio: 1;
 }
 
 .slider {
-    position: relative;
-    margin: 1vw
+  position: relative;
+  margin: 1vw;
 }
 
 @media screen and (max-width: 900px) {
-    .description {
-        width: 80%;
-    }
-}   
+  .description {
+    width: 80%;
+  }
+
+  .description p {
+    width: 100%;
+  }
+}
