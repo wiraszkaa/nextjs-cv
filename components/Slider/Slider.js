@@ -4,7 +4,7 @@ import styles from "./Slider.module.css";
 const Slider = (props) => {
   const [current, setCurrent] = useState(0);
   const [isTransition, setIsTransition] = useState(false);
-  
+
   if (!props.frames) {
     return;
   }
@@ -43,11 +43,26 @@ const Slider = (props) => {
       <button className={styles.next} onClick={nextSlide}>
         ❱
       </button>
-      <div className={[styles.frame, styles.mainFrame, transitionClass].join(" ")}>
+      <div
+        style={props.frame}
+        className={[styles.mainFrame, transitionClass].join(" ")}
+      >
         <div className={styles.frames}>
-          <div className={[styles.prevFrame, styles.frame].join(" ")}>{props.frames[prev]}</div>
-          <div className={styles.frame}>{props.frames[current]}</div>
-          <div className={[styles.nextFrame, styles.frame].join(" ")}>{props.frames[next]}</div>
+          <div
+            style={props.frame}
+            className={styles.prevFrame}
+          >
+            {props.frames[prev]}
+          </div>
+          <div style={props.frame}>
+            {props.frames[current]}
+          </div>
+          <div
+            style={props.frame}
+            className={styles.nextFrame}
+          >
+            {props.frames[next]}
+          </div>
         </div>
       </div>
     </div>

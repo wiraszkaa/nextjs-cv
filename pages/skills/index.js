@@ -3,10 +3,6 @@ import SkillList from "../../components/SkillList/SkillList";
 import Slider from "../../components/Slider/Slider";
 import styles from "./Skills.module.css";
 
-import Image from "next/image";
-import photo0 from "../../assets/hobbies/0.jpg";
-import photo1 from "../../assets/hobbies/1.jpg";
-
 const frontendSkills = [
   { name: "JavaScript", progress: "60%" },
   { name: "React", progress: "60%" },
@@ -33,11 +29,11 @@ const languages = [
 ];
 
 const frames = [
-  <SkillList title="Frontend" skills={frontendSkills} />,
-  <SkillList title="Backend" skills={backendSkills} />,
-  <SkillList title="Query" skills={[{ name: "mySQL", progress: "60%" }]} />,
-  <SkillList title="Software" skills={softwareSkills} />,
-  <SkillList title="Languages" skills={languages} />,
+  <SkillList title="Frontend" skills={frontendSkills} key="Frontend"/>,
+  <SkillList title="Backend" skills={backendSkills} key="Backend"/>,
+  <SkillList title="Query" skills={[{ name: "mySQL", progress: "60%" }]} key="Query" />,
+  <SkillList title="Software" skills={softwareSkills} key="Software"/>,
+  <SkillList title="Languages" skills={languages} key="Languages"/>,
 ];
 
 const Skills = () => {
@@ -50,15 +46,7 @@ const Skills = () => {
       <main className="main">
         <h1>Skills</h1>
         <div className={styles.skills}>
-          <Slider frames={frames} />
-          {/* <SkillList title="Frontend" skills={frontendSkills} />
-          <SkillList title="Backend" skills={backendSkills} />
-          <SkillList
-            title="Query"
-            skills={[{ name: "mySQL", progress: "60%" }]}
-          />
-          <SkillList title="Software" skills={softwareSkills} />
-          <SkillList title="Languages" skills={languages} /> */}
+          <Slider frames={frames} frame={{width: "31vw", aspectRatio: 0.7}}/>
         </div>
       </main>
     </>

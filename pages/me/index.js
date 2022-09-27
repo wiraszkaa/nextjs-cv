@@ -6,6 +6,7 @@ import styles from "./Me.module.css";
 import photo0 from "../../assets/hobbies/0.jpg";
 import photo1 from "../../assets/hobbies/1.jpg";
 import PhotoSlider from "../../UI/PhotoSlider/PhotoSlider";
+import Slider from "../../components/Slider/Slider";
 
 const Me = () => {
   return (
@@ -39,14 +40,15 @@ const Me = () => {
             well as technological innovations of various kinds, mainly robotics,
             automation, computers, cryptocurrencies and NFT.
           </p>
-          <Card className={styles.slider}>
-            <PhotoSlider
-              photos={[
-                { src: photo0, index: 0 },
-                { src: photo1, index: 1 },
+          <div className={styles.slider}>
+            <Slider
+              frames={[
+                <Image src={photo0} alt="0" layout="responsive" key="0"/>,
+                <Image src={photo1} alt="1" layout="responsive" key="1"/>,
               ]}
+              frame={{ width: "27vw", aspectRatio: 1 }}
             />
-          </Card>
+          </div>
         </div>
       </main>
     </>

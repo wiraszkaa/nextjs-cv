@@ -18,7 +18,7 @@ const ProgressBar = (props) => {
       <div className={styles.bar}>
         <div
           className={styles.progress}
-          style={{ width: props.progress, "background-color": color }}
+          style={{ width: props.progress, backgroundColor: color }}
         />
       </div>
     </div>

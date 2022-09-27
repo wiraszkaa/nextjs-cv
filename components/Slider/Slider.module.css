@@ -15,6 +15,7 @@
   border: none;
   font-size: 80px;
   opacity: 0.1;
+  animation: disappear 0.3s ease-in-out;
 }
 
 .previous {
@@ -31,11 +32,6 @@
   transform: translateY(-50%);
   right: 1rem;
   z-index: 1;
-}
-
-.frame {
-  width: 31vw;
-  aspect-ratio: 0.7;
 }
 
 .mainFrame {
@@ -92,5 +88,13 @@
   100% {
     opacity: 1;
   }
-  
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
