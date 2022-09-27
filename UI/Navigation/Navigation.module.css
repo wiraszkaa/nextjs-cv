@@ -23,3 +23,13 @@
     padding-left: 5%;
     font-size: calc(1rem + 0.8vw);
 }
+
+@media screen and (max-width: 900px) {
+    .navigation ul {
+        padding: 0;
+    }
+
+    .navigation li {
+        margin: 0 1vw;
+    }
+  }

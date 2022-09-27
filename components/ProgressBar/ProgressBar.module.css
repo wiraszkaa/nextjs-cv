@@ -1,0 +1,48 @@
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progressBar p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.bar {
+  border: 1px solid white;
+  border-radius: 20px;
+  width: calc(7rem + 5vw);
+  height: calc(2rem + 1vw);
+  overflow: hidden;
+}
+
+.progress {
+  content: "";
+  display: block;
+  background-color: rgb(133, 1, 1);
+  width: 100%;
+  height: 100%;
+  animation: slideRight 1s ease-in-out;
+}
+
+.annotation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.annotation p {
+  margin: 0;
+  font-size: calc(5px + 0.5vw);
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

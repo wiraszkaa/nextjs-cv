@@ -1,19 +1,20 @@
 .button {
   position: relative;
-  padding: 1vw 2.5vw;
   display: block;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
   border-radius: 40px;
   width: fit-content;
-  height: fit-content;
+  height: calc(1rem + 2vw);
   cursor: pointer;
 }
 
 .button span {
-  margin: auto;
+  padding: 0 0.2vw;
+  margin: 0;
   position: relative;
+  top: calc(-6px + 0.9vw);
   font-size: calc(5px + 0.8vw);
   letter-spacing: 0.3vw;
   z-index: 1;
@@ -28,7 +29,6 @@
   background: #850404;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
   transition: 0.5s;
-  border: 1px solid white;
 }
 
 .liquid::after,
@@ -65,5 +65,20 @@
   }
   100% {
     transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .button {
+    padding: 0.5vw 4px;
+    border-radius: 20px;
+  }
+
+  .button span {
+    font-size: calc(2px + 1vw);
+  }
+
+  .liquid {
+    top: -10%;
   }
 }
