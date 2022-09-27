@@ -6,9 +6,9 @@ const SkillList = (props) => {
     <div className={styles.skillList}>
       <h1>{props.title}</h1>
       {props.skills.map((skill) => (
-        <div className={styles.skill}>
+        <div className={styles.skill} key={skill.name}>
           <span>{skill.name}</span>
-          <ProgressBar progress={skill.progress} />
+          <ProgressBar progress={skill.progress} color={props.color} />
         </div>
       ))}
     </div>
