@@ -37,6 +37,11 @@ const frames = [
 ];
 
 const Skills = () => {
+  let setCurrentFunction;
+  const changeHandler = (setCurrent) => {
+    setCurrentFunction = setCurrent;
+  }
+
   return (
     <>
       <Head>
@@ -45,8 +50,15 @@ const Skills = () => {
       </Head>
       <main className="main">
         <h1>Skills</h1>
+        <div className={styles.skillButtons}>
+          <button onClick={() => setCurrentFunction(0)}>Frontend</button>
+          <button onClick={() => setCurrentFunction(1)}>Backend</button>
+          <button onClick={() => setCurrentFunction(2)}>Query</button>
+          <button onClick={() => setCurrentFunction(3)}>Software</button>
+          <button onClick={() => setCurrentFunction(4)}>Languages</button>
+        </div>
         <div className={styles.skills}>
-          <Slider frames={frames} frame={{width: "calc(20rem + 10vw)", aspectRatio: 0.7}}/>
+          <Slider frames={frames} frame={{width: "calc(18rem + 15vw)", aspectRatio: 0.8}} changeCurrent={changeHandler}/>
         </div>
       </main>
     </>

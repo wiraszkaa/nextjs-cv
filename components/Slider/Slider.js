@@ -5,18 +5,22 @@ const Slider = (props) => {
   const [current, setCurrent] = useState(0);
   const [isTransition, setIsTransition] = useState(false);
 
+  if (props.changeCurrent) {
+    props.changeCurrent(setCurrent);
+  }
+
   if (!props.frames) {
     return;
   }
 
   const prev = current === 0 ? props.frames.length - 1 : current - 1;
-  const next = current === props.frames.length - 1 ? 0 : current + 1;
+  const next = (current + 1) % props.frames.length;
 
   const nextSlide = () => {
     setIsTransition("next");
     setTimeout(() => {
       setIsTransition(false);
-      setCurrent(current === props.frames.length - 1 ? 0 : current + 1);
+      setCurrent((current + 1) % props.frames.length);
     }, 500);
   };
 
@@ -48,19 +52,11 @@ const Slider = (props) => {
         className={[styles.mainFrame, transitionClass].join(" ")}
       >
         <div className={styles.frames}>
-          <div
-            style={props.frame}
-            className={styles.prevFrame}
-          >
+          <div style={props.frame} className={styles.prevFrame}>
             {props.frames[prev]}
           </div>
-          <div style={props.frame}>
-            {props.frames[current]}
-          </div>
-          <div
-            style={props.frame}
-            className={styles.nextFrame}
-          >
+          <div style={props.frame}>{props.frames[current]}</div>
+          <div style={props.frame} className={styles.nextFrame}>
             {props.frames[next]}
           </div>
         </div>

@@ -22,7 +22,7 @@
 
 .liquid {
   position: absolute;
-  top: -20%;
+  top: 0;
   left: -5px;
   width: calc(100% + 10px);
   aspect-ratio: 1;
@@ -39,24 +39,28 @@
   position: absolute;
   top: -37%;
   left: 50%;
-  transform: translate(-50%, -75%);
-  background: rgb(0, 0, 0);
+  transform: translate(-50%, 0);
+  background: rgba(43, 1, 1, 0.349);
 }
 
 .liquid::before {
   border-radius: 45%;
-  background: rgb(14, 3, 3);
+  background: rgba(43, 1, 1, 0.425);
   animation: animate 7s linear infinite;
 }
 
 .liquid::after {
   border-radius: 40%;
-  background: rgba(133, 1, 1, 0.26);
+  background: rgb(43, 1, 1);
   animation: animate 12s linear infinite;
 }
 
 .button:hover .liquid {
-  top: -150%;
+  top: -70%;
+}
+
+.active .liquid {
+  top: -70%;
 }
 
 @keyframes animate {
@@ -75,10 +79,10 @@
   }
 
   .button span {
-    font-size: calc(2px + 1vw);
+    letter-spacing: 0;
   }
 
   .liquid {
-    top: -10%;
-  }
+    top: 30%;
+  };
 }

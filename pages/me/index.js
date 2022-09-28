@@ -15,10 +15,12 @@ const Me = () => {
         <title>About Jakub Wiraszka</title>
         <meta name="description" content="Information about Jakub Wiraszka" />
       </Head>
-      <main className="main">
-        <h1>Hi! I am Jakub Wiraszka.</h1>
+      <main className={styles.me}>
+        <div className={styles.typewriter}>
+          <h1>Hi! I am Jakub Wiraszka.</h1>
+        </div>
 
-        <div className={styles.description}>
+        <div className={`${styles.description} ${styles.slideLeft}`}>
           <p>
             I have been programming <b>since I was 14</b>. However,{" "}
             <b>for a year</b> now, I have been{" "}
@@ -31,23 +33,25 @@ const Me = () => {
           </Card>
         </div>
 
-        <h1>MY HOBBIES</h1>
-        <div className={styles.description}>
-          <p>
-            In addition to programming, I professionally deal with horse riding.
-            I am a member of the National Team in the eventing discipline.
-            Furthermore, I am amateurly interested in photography and cooking as
-            well as technological innovations of various kinds, mainly robotics,
-            automation, computers, cryptocurrencies and NFT.
-          </p>
-          <div className={styles.slider}>
-            <Slider
-              frames={[
-                <Image src={photo0} alt="0" layout="responsive" key="0"/>,
-                <Image src={photo1} alt="1" layout="responsive" key="1"/>,
-              ]}
-              frame={{ width: "calc(12rem + 14vw)", aspectRatio: 1 }}
-            />
+        <div className={styles.hobbies}>
+          <h1>MY HOBBIES</h1>
+          <div className={styles.description}>
+            <p>
+              In addition to programming, I professionally deal with horse
+              riding. I am a member of the National Team in the eventing
+              discipline. Furthermore, I am amateurly interested in photography
+              and cooking as well as technological innovations of various kinds,
+              mainly robotics, automation, computers, cryptocurrencies and NFT.
+            </p>
+            <div className={styles.slider}>
+              <Slider
+                frames={[
+                  <Image src={photo0} alt="0" layout="responsive" key="0" />,
+                  <Image src={photo1} alt="1" layout="responsive" key="1" />,
+                ]}
+                frame={{ width: "calc(12rem + 14vw)", aspectRatio: 1 }}
+              />
+            </div>
           </div>
         </div>
       </main>

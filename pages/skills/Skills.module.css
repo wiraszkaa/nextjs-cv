@@ -6,7 +6,26 @@
   flex-wrap: wrap;
 }
 
-.frame {
-  width: "35vw";
-  aspect-ratio: 0.8;
+.skillButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skillButtons button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid white;
+  background: none;
+  border-radius: 1rem;
+  font-size: calc(10px + 1vw);
+  cursor: pointer;
+}
+
+.skillButtons button:hover,
+.skillButtons button:active {
+  transform: scale(1.05);
+  border-color: rgb(133, 1, 1);
+  transition: all 0.5s;
 }
