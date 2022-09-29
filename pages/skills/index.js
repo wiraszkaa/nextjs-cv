@@ -58,7 +58,7 @@ const Skills = () => {
           <button onClick={() => setCurrentFunction(4)}>Languages</button>
         </div>
         <div className={styles.skills}>
-          <Slider frames={frames} frame={{width: "calc(18rem + 15vw)", aspectRatio: 0.8}} changeCurrent={changeHandler}/>
+          <Slider frames={frames} frame={{width: "calc(18rem + 15vw)", aspectRatio: 0.7}} changeCurrent={changeHandler}/>
         </div>
       </main>
     </>

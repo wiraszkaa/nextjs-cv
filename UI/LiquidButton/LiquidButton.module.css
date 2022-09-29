@@ -85,4 +85,12 @@
   .liquid {
     top: 30%;
   };
+
+  .button:hover .liquid {
+    top: -20%;
+  }
+  
+  .active .liquid {
+    top: -20%;
+  }
 }
