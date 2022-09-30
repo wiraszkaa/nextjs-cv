@@ -1,6 +1,8 @@
 import { useState } from "react";
+import Image from "next/image";
 import Project from "./Project/Project";
 import styles from "./ProjectList.module.css";
+import { CSSTransition } from "react-transition-group";
 
 const ProjectList = (props) => {
   let initialState = false;
@@ -25,10 +27,32 @@ const ProjectList = (props) => {
   };
 
   return (
-    <div style={{color: props.color}} className={styles.projectList}>
-      <h1>{props.title}</h1>
-      <button style={{color: props.color}} onClick={toogleHandler}>{show ? "Hide" : "Show"}</button>
-      {show && <ul>{projects}</ul>}
+    <div style={{ color: props.color }} className={styles.projectList}>
+      <div className="description">
+        {props.logo && (
+          <div className="icon">
+            <Image src={props.logo} alt={props.title} layout="fill" />
+          </div>
+        )}
+        <h1>{props.title}</h1>
+      </div>
+      <button style={{ color: props.color }} onClick={toogleHandler}>
+        {show ? "Hide" : "Show"}
+      </button>
+      <CSSTransition
+        mountOnEnter
+        unmountOnExit
+        in={show}
+        timeout={300}
+        classNames={{
+          enterActive: styles.appear,
+          exitActive: styles.disappear,
+        }}
+      >
+        <div className={styles.projects}>
+          <ul>{projects}</ul>
+        </div>
+      </CSSTransition>
     </div>
   );
 };

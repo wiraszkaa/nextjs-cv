@@ -6,18 +6,20 @@
   overflow: hidden;
   border-radius: 40px;
   width: fit-content;
-  height: calc(1rem + 2vw);
+  height: calc(0.5rem + 2vw);
   cursor: pointer;
 }
 
 .button span {
+  display: block;
+  min-width: 2rem;
   padding: 0 0.2vw;
-  margin: 0;
   position: relative;
-  top: calc(-6px + 0.9vw);
+  top: 20%;
   font-size: calc(5px + 0.8vw);
   letter-spacing: 0.3vw;
   z-index: 1;
+  text-align: center;
 }
 
 .liquid {
@@ -82,15 +84,11 @@
     letter-spacing: 0;
   }
 
-  .liquid {
-    top: 30%;
-  };
-
   .button:hover .liquid {
-    top: -20%;
+    top: -70%;
   }
   
   .active .liquid {
-    top: -20%;
+    top: -70%;
   }
 }

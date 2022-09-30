@@ -1,8 +1,10 @@
 import Head from "next/head";
-import reactScoresIcon from "../../assets/react_scores.ico";
-import wiraszkaIcon from "../../assets/wiraszka.ico";
-import styles from "./Projects.module.css";
+import reactScoresIcon from "../../assets/projects/react_scores.ico";
+import wiraszkaIcon from "../../assets/projects/wiraszka.ico";
+import nextIcon from "../../assets/projects/next.ico";
+import reactIcon from "../../assets/projects/react.ico";
 import ProjectList from "../../components/ProjectList/ProjectList";
+import styles from "./Projects.module.css";
 
 const nextProjects = [
   {
@@ -19,18 +21,34 @@ const nextProjects = [
   },
 ];
 
+const reactProjects = [
+  {
+    name: "React Scores",
+    url: "https://react-scores.vercel.app/",
+    logo: reactScoresIcon,
+    description:
+      "Project of a website to display match scores.",
+  },
+  {
+    name: "React Meals",
+    url: "https://github.com/wiraszkaa/react-meals",
+    logo: reactIcon,
+    description: "Project of a website to order food.",
+  },
+];
+
 const minorProjects = [
   {
     name: "JavaFX Adventure Game",
     url: "https://github.com/wiraszkaa/AdventureGame/",
     description:
-      "Final game project designed for educational purpose programmed in Java.",
+      "Final game project designed for educational purpose.",
   },
   {
     name: "Python Snake",
     url: "https://github.com/wiraszkaa/python_snake/",
     description:
-      "Application based on a popular Snake game programmed in Python.",
+      "Application based on a popular Snake game.",
   },
 ];
 
@@ -43,20 +61,13 @@ const Projects = () => {
       </Head>
       <main className="main">
         <h1>Projects</h1>
-        <ProjectList title="Next.js" projects={nextProjects} open />
+        <ProjectList logo={nextIcon} title="Next.js" projects={nextProjects} open />
+        <ProjectList logo={reactIcon} title="React" projects={reactProjects} />
         <ProjectList
-          title="React"
-          projects={[
-            {
-              name: "React Scores",
-              url: "https://react-scores.vercel.app/",
-              logo: reactScoresIcon,
-              description:
-                "Project of a website to display match scores programmed in React.",
-            },
-          ]}
+          title="Minor Projects"
+          projects={minorProjects}
+          color="rgba(255, 255, 255, 0.6)"
         />
-        <ProjectList title="Minor Projects" projects={minorProjects} color="rgba(255, 255, 255, 0.6)"/>
       </main>
     </>
   );

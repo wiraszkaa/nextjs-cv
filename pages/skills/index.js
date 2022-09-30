@@ -4,34 +4,34 @@ import Slider from "../../components/Slider/Slider";
 import styles from "./Skills.module.css";
 
 const frontendSkills = [
-  { name: "JavaScript", progress: "60%" },
-  { name: "React", progress: "60%" },
+  { name: "JavaScript", progress: "50%" },
+  { name: "React", progress: "50%" },
   { name: "Next.js", progress: "50%" },
-  { name: "HTML", progress: "50%" },
-  { name: "CSS", progress: "45%" },
+  { name: "HTML", progress: "40%" },
+  { name: "CSS", progress: "40%" },
 ];
 
 const backendSkills = [
-  { name: "Java", progress: "60%" },
-  { name: "Python", progress: "50%" },
+  { name: "Java", progress: "50%" },
+  { name: "Python", progress: "40%" },
 ];
 
 const softwareSkills = [
-  { name: "Office", progress: "80%" },
-  { name: "Adobe", progress: "60%" },
-  { name: "AutoCAD", progress: "40%" },
+  { name: "Office", progress: "70%" },
+  { name: "Adobe", progress: "50%" },
+  { name: "AutoCAD", progress: "30%" },
 ];
 
 const languages = [
   { name: "Polish", progress: "100%" },
-  { name: "English", progress: "80%" },
+  { name: "English", progress: "70%" },
   { name: "German", progress: "40%" },
 ];
 
 const frames = [
   <SkillList title="Frontend" skills={frontendSkills} key="Frontend"/>,
   <SkillList title="Backend" skills={backendSkills} key="Backend"/>,
-  <SkillList title="Query" skills={[{ name: "mySQL", progress: "60%" }]} key="Query" />,
+  <SkillList title="Query" skills={[{ name: "mySQL", progress: "45%" }]} key="Query" />,
   <SkillList title="Software" skills={softwareSkills} key="Software"/>,
   <SkillList title="Languages" skills={languages} key="Languages"/>,
 ];
