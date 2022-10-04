@@ -38,7 +38,7 @@ const Me = () => {
             <p>
               I have been working as a <b>web developer</b> for{" "}
               <b>Wiraszka Transport and Spedition</b> for a year now. I have
-              been responsible for the company's website and its maintenance.
+              been responsible for the company&apos;s website and its maintenance.
             </p>
           </div>
         </div>

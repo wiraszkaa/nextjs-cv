@@ -15,7 +15,7 @@ const nextProjects = [
   },
   {
     name: "Wiraszka",
-    url: "https://wiraszka.vercel.app/",
+    url: "https://phumaja.pl/",
     logo: wiraszkaIcon,
     description: "Website for a Wiraszka company.",
   },
