@@ -12,7 +12,10 @@ const Contact = () => {
         <title>Wiraszka Contact</title>
         <meta name="description" content="Contact to Jakub Wiraszka" />
       </Head>
-      <main className={`main ${styles.contact}`}>
+      <div className={styles.typewriter}>
+        <h1>I like where this is headed.</h1>
+      </div>
+      <main className="main">
         <h1>Contact</h1>
         <div className="description">
           <div className="icon">
@@ -42,11 +45,7 @@ const Contact = () => {
           <div className="icon">
             <Image src={phoneIcon} alt="Telefon" layout="fill" />
           </div>
-          <a
-            href="tel:+48609600509"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="tel:+48609600509" target="_blank" rel="noopener noreferrer">
             <p>+48 609 600 509</p>
           </a>
         </div>

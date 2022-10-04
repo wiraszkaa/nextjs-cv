@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import Card from "../../UI/Card/Card";
 import myPhoto from "../../assets/me.jpg";
 import styles from "./Me.module.css";
 import photo0 from "../../assets/hobbies/0.jpg";
 import photo1 from "../../assets/hobbies/1.jpg";
-import PhotoSlider from "../../UI/PhotoSlider/PhotoSlider";
 import Slider from "../../components/Slider/Slider";
+import InfoDropDown from "../../components/InfoDropDown/InfoDropDown";
 
 const Me = () => {
   return (
@@ -28,9 +27,32 @@ const Me = () => {
             <b> various projects</b>. Now, I am actively increasing my{" "}
             <b>React</b> and <b>Next.js</b> skills.
           </p>
-          <Card className={styles.photo}>
+          <div className={styles.photo}>
             <Image src={myPhoto} alt="Jakub Wiraszka" layout="responsive" />
-          </Card>
+          </div>
+        </div>
+
+        <div className={styles.career}>
+          <h1>CAREER</h1>
+          <div className={styles.description}>
+            <p>
+              I have been working as a <b>web developer</b> for{" "}
+              <b>Wiraszka Transport and Spedition</b> for a year now. I have
+              been responsible for the company's website and its maintenance.
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.education}>
+          <h1>EDUCATION</h1>
+          <div className={styles.description}>
+            <p>
+              Currently, I am studying Applied Computer Science at the{" "}
+              <b>Wrocław University of Science and Technology</b>. I am at the
+              second year of my studies. Also, I have finished last year with{" "}
+              <b>high grade average</b>.
+            </p>
+          </div>
         </div>
 
         <div className={styles.hobbies}>

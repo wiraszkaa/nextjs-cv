@@ -49,7 +49,7 @@ const ProjectList = (props) => {
           exitActive: styles.disappear,
         }}
       >
-        <div className={styles.projects}>
+        <div>
           <ul>{projects}</ul>
         </div>
       </CSSTransition>

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from "react";
 import SkillList from "../../components/SkillList/SkillList";
 import Slider from "../../components/Slider/Slider";
 import styles from "./Skills.module.css";

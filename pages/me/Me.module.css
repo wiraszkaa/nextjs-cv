@@ -1,5 +1,6 @@
 .me {
   min-height: 100vh;
+  min-width: 380px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,20 @@
 }
 
 .slideLeft {
+  animation: slideLeft 1s ease-in-out;
+}
+
+.career {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideLeft 1.5s ease-in-out;
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   animation: slideLeft 2s ease-in-out;
 }
 
@@ -42,10 +57,12 @@
 }
 
 .photo {
+  margin: 1rem;
   position: relative;
   height: calc(12rem + 14vw);
+  border-radius: 40px;
+  overflow: hidden;
   aspect-ratio: 1;
-  animation: slideRight 2s ease-in-out;
 }
 
 .slider {
