@@ -8,7 +8,7 @@ const frontendSkills = [
   { name: "React", progress: "50%" },
   { name: "Next.js", progress: "50%" },
   { name: "HTML", progress: "40%" },
-  { name: "CSS", progress: "40%" },
+  { name: "CSS", progress: "30%" },
 ];
 
 const backendSkills = [
@@ -19,7 +19,6 @@ const backendSkills = [
 const softwareSkills = [
   { name: "Office", progress: "70%" },
   { name: "Adobe", progress: "50%" },
-  { name: "AutoCAD", progress: "30%" },
 ];
 
 const languages = [
@@ -30,22 +29,15 @@ const languages = [
 
 const frames = [
   <SkillList title="Frontend" skills={frontendSkills} key="Frontend" />,
+  <SkillList title="Languages" skills={languages} key="Languages" />,
   <SkillList title="Backend" skills={backendSkills} key="Backend" />,
+  <SkillList title="Software" skills={softwareSkills} key="Software" />,
+
   <SkillList
     title="Query"
     skills={[{ name: "mySQL", progress: "45%" }]}
     key="Query"
   />,
-  <SkillList title="Software" skills={softwareSkills} key="Software" />,
-  <SkillList title="Languages" skills={languages} key="Languages" />,
-];
-
-const navigation = [
-  <span key="Frontend" className={styles.skillButton}>Frontend</span>,
-  <span key="Backend" className={styles.skillButton}>Backend</span>,
-  <span key="Query" className={styles.skillButton}>Query</span>,
-  <span key="Software" className={styles.skillButton}>Software</span>,
-  <span key="Languages" className={styles.skillButton}>Languages</span>,
 ];
 
 const Skills = () => {
@@ -59,8 +51,7 @@ const Skills = () => {
         <div className={styles.skills}>
           <Swiper
             frames={frames}
-            navigation={navigation}
-            width={440}
+            // width={460}
             height={"fit-content"}
             framesVisible={3}
             scrollSpeed={3}

@@ -3,14 +3,9 @@ import styles from "../Swiper.module.css";
 
 const Frame = (props) => {
   let styleObj = {
-    width: props.width ? props.width + "px" : 100 / props.framesVisible + "%",
+    minWidth: props.width ? (props.width + "px") : (Math.floor(99 / props.framesVisible) + "vw"),
+    height: props.height ? props.height : "fit-content",
   };
-  if (props.height) {
-    styleObj = {
-      ...styleObj,
-      height: props.height,
-    };
-  }
 
   return (
     <div id={props.id} style={styleObj} className={styles.frame}>

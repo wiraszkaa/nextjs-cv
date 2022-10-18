@@ -1,11 +1,14 @@
 .card {
-  margin: 1rem;
-  padding: 1.5rem;
   text-decoration: none;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   background-color: rgb(238, 237, 237);
   opacity: 0.9;
+}
+
+.margin {
+  margin: 1rem;
+  padding: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {

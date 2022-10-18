@@ -1,5 +1,5 @@
-import classes from './Card.module.css';
+import styles from './Card.module.css';
 
 export default function Card(props) {
-  return <div className={`${classes.card} ${props.className}`} style={props.style}>{props.children}</div>;
+  return <div className={`${styles.card} ${props.className} ${props.noMargin ? "" : styles.margin}`} style={props.style}>{props.children}</div>;
 }

@@ -5,6 +5,7 @@ import styles from "./Swiper.module.css";
 const Swiper = (props) => {
   const [selected, setSelected] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
+  const [framesVisible, setFramesVisible] = useState(props.framesVisible);
   const swiper = useRef();
   let startX;
   let scrollLeft;
@@ -41,9 +42,19 @@ const Swiper = (props) => {
     swiper.current.addEventListener("mouseup", mouseUpHandler);
   }, [mouseDownHandler, mouseUpHandler]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 1000) {
+        setFramesVisible(2);
+      }
+      if (window.innerWidth < 600) {
+        setFramesVisible(1);
+      }
+    }
+  }, []);
+
   const scrollTo = (index) => {
     let element = document.getElementById("frame" + index);
-    console.log(element);
     element.scrollIntoView();
   };
 
@@ -53,7 +64,7 @@ const Swiper = (props) => {
       key={index}
       width={props.width}
       height={props.height}
-      framesVisible={props.framesVisible}
+      framesVisible={framesVisible}
     >
       {frame}
     </Frame>
@@ -93,10 +104,11 @@ const Swiper = (props) => {
   }
 
   let styleObj = {
-    width: props.framesVisible
-      ? props.framesVisible * props.width + "px"
-      : "100%",
-    height: props.height,
+    width:
+      framesVisible && props.width
+        ? framesVisible * props.width + "px"
+        : "99vw",
+    height: props.height ? props.height : "fit-content",
   };
 
   return (
