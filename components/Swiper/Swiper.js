@@ -12,7 +12,7 @@ const Swiper = (props) => {
   useEffect(() => {
     swiper.current.addEventListener("mousedown", mouseDownHandler);
     swiper.current.addEventListener("mouseup", mouseUpHandler);
-  }, []);
+  }, [mouseDownHandler, mouseUpHandler]);
 
   const mouseDownHandler = (e) => {
     setIsMouseDown(true);

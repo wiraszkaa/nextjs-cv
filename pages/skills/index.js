@@ -41,11 +41,11 @@ const frames = [
 ];
 
 const navigation = [
-  <span className={styles.skillButton}>Frontend</span>,
-  <span className={styles.skillButton}>Backend</span>,
-  <span className={styles.skillButton}>Query</span>,
-  <span className={styles.skillButton}>Software</span>,
-  <span className={styles.skillButton}>Languages</span>,
+  <span key="Frontend" className={styles.skillButton}>Frontend</span>,
+  <span key="Backend" className={styles.skillButton}>Backend</span>,
+  <span key="Query" className={styles.skillButton}>Query</span>,
+  <span key="Software" className={styles.skillButton}>Software</span>,
+  <span key="Languages" className={styles.skillButton}>Languages</span>,
 ];
 
 const Skills = () => {
