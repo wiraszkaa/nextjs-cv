@@ -9,23 +9,32 @@ const Swiper = (props) => {
   let startX;
   let scrollLeft;
 
-  const mouseMoveHandler = useCallback((e) => {
-    const x = e.pageX - swiper.current.offsetLeft;
-    const walk = (x - startX) * (props.scrollSpeed ? props.scrollSpeed : 3);
-    swiper.current.scrollLeft = scrollLeft - walk;
-  });
-  
-  const mouseDownHandler = useCallback((e) => {
-    setIsMouseDown(true);
-    startX = e.pageX - swiper.current.offsetLeft;
-    scrollLeft = swiper.current.scrollLeft;
-    swiper.current.addEventListener("mousemove", mouseMoveHandler);
-  });
+  const mouseMoveHandler = useCallback(
+    (e) => {
+      const x = e.pageX - swiper.current.offsetLeft;
+      const walk = (x - startX) * (props.scrollSpeed ? props.scrollSpeed : 3);
+      swiper.current.scrollLeft = scrollLeft - walk;
+    },
+    [props.scrollSpeed, startX, scrollLeft]
+  );
 
-  const mouseUpHandler = useCallback((e) => {
-    setIsMouseDown(false);
-    swiper.current.removeEventListener("mousemove", mouseMoveHandler);
-  });
+  const mouseDownHandler = useCallback(
+    (e) => {
+      setIsMouseDown(true);
+      startX = e.pageX - swiper.current.offsetLeft;
+      scrollLeft = swiper.current.scrollLeft;
+      swiper.current.addEventListener("mousemove", mouseMoveHandler);
+    },
+    [mouseMoveHandler]
+  );
+
+  const mouseUpHandler = useCallback(
+    (e) => {
+      setIsMouseDown(false);
+      swiper.current.removeEventListener("mousemove", mouseMoveHandler);
+    },
+    [mouseMoveHandler]
+  );
 
   useEffect(() => {
     swiper.current.addEventListener("mousedown", mouseDownHandler);
@@ -33,8 +42,22 @@ const Swiper = (props) => {
   }, [mouseDownHandler, mouseUpHandler]);
 
   const scrollTo = (index) => {
-    swiper.current.scrollLeft = index * props.width;
+    let element = document.getElementById("frame" + index);
+    console.log(element);
+    element.scrollIntoView();
   };
+
+  const frames = props.frames.map((frame, index) => (
+    <Frame
+      id={"frame" + index}
+      key={index}
+      width={props.width}
+      height={props.height}
+      framesVisible={props.framesVisible}
+    >
+      {frame}
+    </Frame>
+  ));
 
   let navigation;
   if (props.navigation) {
@@ -84,16 +107,7 @@ const Swiper = (props) => {
         style={styleObj}
         className={`${styles.swiper} ${isMouseDown ? styles.grab : ""}`}
       >
-        {props.frames.map((frame, index) => (
-          <Frame
-            key={index}
-            width={props.width}
-            height={props.height}
-            framesVisible={props.framesVisible}
-          >
-            {frame}
-          </Frame>
-        ))}
+        {frames}
       </div>
     </div>
   );

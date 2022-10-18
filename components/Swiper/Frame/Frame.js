@@ -13,7 +13,7 @@ const Frame = (props) => {
   }
 
   return (
-    <div style={styleObj} className={styles.frame}>
+    <div id={props.id} style={styleObj} className={styles.frame}>
       {props.children}
     </div>
   );
