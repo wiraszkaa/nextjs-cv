@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Frame from "./Frame/Frame";
 import styles from "./Swiper.module.css";
 
@@ -9,28 +9,28 @@ const Swiper = (props) => {
   let startX;
   let scrollLeft;
 
-  useEffect(() => {
-    swiper.current.addEventListener("mousedown", mouseDownHandler);
-    swiper.current.addEventListener("mouseup", mouseUpHandler);
-  }, [mouseDownHandler, mouseUpHandler]);
-
-  const mouseDownHandler = (e) => {
+  const mouseMoveHandler = useCallback((e) => {
+    const x = e.pageX - swiper.current.offsetLeft;
+    const walk = (x - startX) * (props.scrollSpeed ? props.scrollSpeed : 3);
+    swiper.current.scrollLeft = scrollLeft - walk;
+  });
+  
+  const mouseDownHandler = useCallback((e) => {
     setIsMouseDown(true);
     startX = e.pageX - swiper.current.offsetLeft;
     scrollLeft = swiper.current.scrollLeft;
     swiper.current.addEventListener("mousemove", mouseMoveHandler);
-  };
+  });
 
-  const mouseUpHandler = (e) => {
+  const mouseUpHandler = useCallback((e) => {
     setIsMouseDown(false);
     swiper.current.removeEventListener("mousemove", mouseMoveHandler);
-  };
+  });
 
-  const mouseMoveHandler = (e) => {
-    const x = e.pageX - swiper.current.offsetLeft;
-    const walk = (x - startX) * (props.scrollSpeed ? props.scrollSpeed : 3);
-    swiper.current.scrollLeft = scrollLeft - walk;
-  };
+  useEffect(() => {
+    swiper.current.addEventListener("mousedown", mouseDownHandler);
+    swiper.current.addEventListener("mouseup", mouseUpHandler);
+  }, [mouseDownHandler, mouseUpHandler]);
 
   const scrollTo = (index) => {
     swiper.current.scrollLeft = index * props.width;
