@@ -19,8 +19,14 @@ export default function Home() {
         <div className={styles.typewriter}>
           <h1>WELCOME!</h1>
         </div>
-        <div className={styles.image}>
-          <Image src={meIcon} alt="Jakub Wiraszka" layout="responsive" />
+        <div className={styles.greetings}>
+          <div className={styles.text}>
+          <h1>I am Jakub,</h1>
+          <h1>a Frontend Developer</h1>
+          </div>
+          <div className={styles.image}>
+            <Image src={meIcon} alt="Jakub Wiraszka" layout="fill" />
+          </div>
         </div>
         <h1>Check out:</h1>
         <div className={styles.grid}>

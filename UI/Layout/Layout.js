@@ -1,9 +1,8 @@
 import Navigation from "../Navigation/Navigation";
-import styles from "./Layout.module.css";
 
 const Layout = (props) => {
   return (
-    <div className={styles.background}>
+    <div>
       <Navigation />
       <main className="main">{props.children}</main>
     </div>

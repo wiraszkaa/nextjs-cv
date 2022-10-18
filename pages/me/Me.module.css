@@ -12,6 +12,7 @@
 }
 
 .typewriter h1 {
+  letter-spacing: 0;
   white-space: nowrap;
   overflow: hidden;
   border-right: 0.15em solid grey;
@@ -23,7 +24,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  text-align: justify;
+  text-align: left;
   width: 80%;
 }
 

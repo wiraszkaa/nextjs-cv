@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+}
+
+.swiper {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  cursor: grab;
+  max-width: 98vw;
+}
+
+.swiper::-webkit-scrollbar {
+  display: none;
+}
+
+.frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+}
+
+.navigation button {
+  margin: 10px 0.2vw;
+  background: none;
+  border: none;
+}
+
+.defaultNavigation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.defaultNavigation button {
+  font-size: larger;
+}
+
+.grab {
+  cursor: grabbing;
+}

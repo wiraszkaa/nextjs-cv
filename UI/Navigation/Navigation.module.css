@@ -1,37 +1,49 @@
 .navigation {
-    min-width: 380px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-    background-color: rgb(43, 1, 1);
+  min-width: 380px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+  background-color: rgb(121, 0, 0);
 }
 
 .navigation ul {
-    list-style: none;
-    display: flex;
-    padding-right: 5%;
+  list-style: none;
+  display: flex;
+  padding-right: 5%;
 }
 
 .navigation li {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 .logo {
-    cursor: pointer;
-    padding-left: 5%;
-    font-size: calc(1rem + 0.8vw);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+  padding-left: 5%;
+  font-size: calc(1rem + 0.8vw);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 @media screen and (max-width: 900px) {
-    .navigation ul {
-        padding: 0;
-    }
-
-    .navigation li {
-        margin: 0 1vw;
-    }
+  .navigation ul {
+    padding: 0;
   }
+
+  .navigation li {
+    margin: 0 1vw;
+  }
+
+  .logo {
+    padding-left: 16px;
+    font-size: calc(12px + 0.8vw);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .navigation {
+    background-color: rgb(43, 1, 1);
+  }
+}

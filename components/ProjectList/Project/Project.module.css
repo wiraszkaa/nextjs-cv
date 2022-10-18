@@ -5,8 +5,8 @@
     align-items: center;
 }
 
-.project p {
-    color: white;
+.project h1 {
+    font-size: calc(15px + 1.5vw);
 }
 
 .project:hover {

@@ -1,7 +1,9 @@
 .slider {
   position: relative;
   overflow: hidden;
-  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background-color: rgb(238, 237, 237);
   border-radius: 20px;
 }
 
@@ -11,10 +13,11 @@
 }
 
 .slider button {
+  color: rgb(184, 180, 180);
   background: none;
   border: none;
   font-size: calc(40px + 5vw);
-  opacity: 0.1;
+  opacity: 0.3;
   animation: disappear 0.3s ease-in-out;
 }
 
@@ -96,5 +99,14 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .slider {
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 0 0;
+    opacity: 1;
+    background: none;
   }
 }

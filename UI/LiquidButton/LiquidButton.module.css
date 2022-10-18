@@ -11,8 +11,9 @@
 }
 
 .button span {
+  color: rgb(241, 241, 241);
   display: block;
-  min-width: 2.6rem;
+  min-width: 2.8rem;
   padding: 0 0.2vw;
   position: relative;
   top: 20%;
@@ -28,7 +29,7 @@
   left: -5px;
   width: calc(100% + 10px);
   aspect-ratio: 1;
-  background: #850404;
+  background: #ff0000;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
   transition: 0.5s;
 }
@@ -42,18 +43,18 @@
   top: -37%;
   left: 50%;
   transform: translate(-50%, 0);
-  background: rgba(43, 1, 1, 0.349);
+  background: rgb(46, 1, 1);
 }
 
 .liquid::before {
   border-radius: 45%;
-  background: rgba(43, 1, 1, 0.425);
+  background: rgba(110, 2, 2, 0.925);
   animation: animate 7s linear infinite;
 }
 
 .liquid::after {
   border-radius: 40%;
-  background: rgb(43, 1, 1);
+  background: rgb(121, 0, 0);
   animation: animate 12s linear infinite;
 }
 
@@ -87,8 +88,27 @@
   .button:hover .liquid {
     top: -70%;
   }
-  
+
   .active .liquid {
     top: -70%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .liquid {
+    background: #850404;
+  }
+
+  .liquid::after,
+  .liquid::before {
+    background: rgba(43, 1, 1, 0.349);
+  }
+
+  .liquid::before {
+    background: rgba(43, 1, 1, 0.425);
+  }
+  
+  .liquid::after {
+    background: rgb(43, 1, 1);
   }
 }

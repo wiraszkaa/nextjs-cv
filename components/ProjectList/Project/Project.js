@@ -15,7 +15,7 @@ const Project = (props) => {
           {props.logo && <div className="icon">
             <Image src={props.logo} alt={props.name} layout="fill" />
           </div>}
-          <p>{props.name}</p>
+          <h1>{props.name}</h1>
         </div>
         <p>{props.description}</p>
       </Card>

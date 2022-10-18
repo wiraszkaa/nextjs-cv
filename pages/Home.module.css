@@ -7,7 +7,20 @@
   align-items: center;
 }
 
+.greetings {
+  width: 80vw;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.text {
+  margin-right: 1rem;
+  text-align: center;
+}
+
 .image {
+  position: relative;
   width: 60%;
   aspect-ratio: 1;
   border-radius: 40px;
@@ -22,10 +35,13 @@
 }
 
 .grid h1 {
+  font-size: calc(8px + 2vw);
   text-align: center;
-  margin: 1rem;
-  padding: 2rem 1rem;
-  border: 1px solid white;
+  margin: 2vw;
+  padding: 2vw 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background-color: rgb(238, 237, 237);
+  border: none;
   border-radius: 30px;
   cursor: pointer;
 }
@@ -64,5 +80,19 @@
   }
   50% {
     border-color: grey;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .grid h1 {
+    border: 1px solid white;
+    background: none;
+    box-shadow: 0 0 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .greetings {
+    flex-direction: column;
   }
 }

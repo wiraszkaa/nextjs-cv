@@ -4,7 +4,6 @@ import wiraszkaIcon from "../../assets/projects/wiraszka.ico";
 import nextIcon from "../../assets/projects/next.ico";
 import reactIcon from "../../assets/projects/react.ico";
 import ProjectList from "../../components/ProjectList/ProjectList";
-import styles from "./Projects.module.css";
 
 const nextProjects = [
   {
@@ -26,8 +25,7 @@ const reactProjects = [
     name: "React Scores",
     url: "https://react-scores.vercel.app/",
     logo: reactScoresIcon,
-    description:
-      "Project of a website to display match scores.",
+    description: "Project of a website to display match scores.",
   },
   {
     name: "React Meals",
@@ -41,14 +39,12 @@ const minorProjects = [
   {
     name: "JavaFX Adventure Game",
     url: "https://github.com/wiraszkaa/AdventureGame/",
-    description:
-      "Final game project designed for educational purpose.",
+    description: "Final game project designed for educational purpose.",
   },
   {
     name: "Python Snake",
     url: "https://github.com/wiraszkaa/python_snake/",
-    description:
-      "Application based on a popular Snake game.",
+    description: "Application based on a popular Snake game.",
   },
 ];
 
@@ -60,14 +56,20 @@ const Projects = () => {
         <meta name="description" content="Jakub Wiraszka Projects" />
       </Head>
       <main className="main">
-        <h1>Projects</h1>
-        <ProjectList logo={nextIcon} title="Next.js" projects={nextProjects} open />
-        <ProjectList logo={reactIcon} title="React" projects={reactProjects} />
-        <ProjectList
-          title="Minor Projects"
-          projects={minorProjects}
-          color="rgba(255, 255, 255, 0.6)"
-        />
+        <div className="centered slideUp">
+          <ProjectList
+            logo={nextIcon}
+            title="Next.js"
+            projects={nextProjects}
+            open
+          />
+          <ProjectList
+            logo={reactIcon}
+            title="React"
+            projects={reactProjects}
+          />
+          <ProjectList title="Minor Projects" projects={minorProjects} minor />
+        </div>
       </main>
     </>
   );

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Project from "./Project/Project";
 import styles from "./ProjectList.module.css";
 import { CSSTransition } from "react-transition-group";
+import Card from "../../UI/Card/Card";
 
 const ProjectList = (props) => {
   let initialState = false;
@@ -27,7 +28,7 @@ const ProjectList = (props) => {
   };
 
   return (
-    <div style={{ color: props.color }} className={styles.projectList}>
+    <Card className={`${styles.projectList} ${props.minor ? styles.minor : ""}`}>
       <div className="description">
         {props.logo && (
           <div className="icon">
@@ -53,7 +54,7 @@ const ProjectList = (props) => {
           <ul>{projects}</ul>
         </div>
       </CSSTransition>
-    </div>
+    </Card>
   );
 };
 
