@@ -2,11 +2,24 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Frame from "./Frame/Frame";
 import styles from "./Swiper.module.css";
 
+const getAmount = (scrollX, width) => {
+  const amountHelper = (scrollX, width, n) => {
+    if (scrollX > width * (n + 1)) {
+      return amountHelper(scrollX, width, n + 1);
+    } else {
+      return n;
+    }
+  }
+  return amountHelper(scrollX, width, 0);
+};
+
 const Swiper = (props) => {
   const [selected, setSelected] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [framesVisible, setFramesVisible] = useState(props.framesVisible);
   const swiper = useRef();
+  let swiperWidth;
+  let pages = Math.ceil(props.frames.length / framesVisible);
   let startX;
   let scrollLeft;
 
@@ -15,6 +28,8 @@ const Swiper = (props) => {
       const x = e.pageX - swiper.current.offsetLeft;
       const walk = (x - startX) * (props.scrollSpeed ? props.scrollSpeed : 3);
       swiper.current.scrollLeft = scrollLeft - walk;
+
+      setSelected(getAmount(swiper.current.scrollLeft, swiperWidth / pages));
     },
     [props.scrollSpeed, startX, scrollLeft]
   );
@@ -40,6 +55,7 @@ const Swiper = (props) => {
   useEffect(() => {
     swiper.current.addEventListener("mousedown", mouseDownHandler);
     swiper.current.addEventListener("mouseup", mouseUpHandler);
+    swiperWidth = swiper.current.clientWidth;
   }, [mouseDownHandler, mouseUpHandler]);
 
   useEffect(() => {
@@ -55,7 +71,7 @@ const Swiper = (props) => {
 
   const scrollTo = (index) => {
     let element = document.getElementById("frame" + index);
-    element.scrollIntoView();
+    swiper.current.scrollLeft = element.offsetLeft;
   };
 
   const frames = props.frames.map((frame, index) => (
@@ -83,11 +99,11 @@ const Swiper = (props) => {
     );
   } else {
     let buttons = [];
-    for (let i = 0; i < props.frames.length; i++) {
+    for (let i = 0; i < pages; i++) {
       buttons.push(
         <button
           onClick={() => {
-            scrollTo(i);
+            scrollTo(i * framesVisible);
             setSelected(i);
           }}
           key={i}
