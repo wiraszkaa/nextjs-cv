@@ -69,12 +69,13 @@ const Swiper = (props) => {
   );
 
   useEffect(() => {
-    swiper.current.addEventListener("mousedown", mouseDownHandler);
-    swiper.current.addEventListener("mouseup", mouseUpHandler);
+    const swiperInstance = swiper.current;
+    swiperInstance.addEventListener("mousedown", mouseDownHandler);
+    swiperInstance.addEventListener("mouseup", mouseUpHandler);
 
     return () => {
-      swiper.current.removeEventListener("mousedown", mouseDownHandler);
-      swiper.current.removeEventListener("mouseup", mouseUpHandler);
+      swiperInstance.removeEventListener("mousedown", mouseDownHandler);
+      swiperInstance.removeEventListener("mouseup", mouseUpHandler);
     };
   }, [mouseDownHandler, mouseUpHandler]);
 
