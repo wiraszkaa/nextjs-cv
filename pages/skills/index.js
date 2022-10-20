@@ -51,10 +51,10 @@ const Skills = () => {
         <div className={styles.skills}>
           <Swiper
             frames={frames}
-            // width={460}
             height={"fit-content"}
             framesVisible={3}
             scrollSpeed={3}
+            breakpoints={{ 600: 1, 1000: 2 }}
           />
         </div>
       </main>
