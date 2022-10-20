@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import useWindow from "../../hooks/use-window";
 import Frame from "./Frame/Frame";
+import Navigation from "./Navigation/Navigation";
 import styles from "./Swiper.module.css";
 
 const getAmount = (scrollX, width) => {
@@ -15,39 +16,47 @@ const getAmount = (scrollX, width) => {
 };
 
 const Swiper = (props) => {
+  const {
+    framesVisible: defaultFramesVisible,
+    frames,
+    breakpoints,
+    scrollSpeed,
+    width,
+    height,
+  } = props;
   const { width: pageWidth } = useWindow();
   const [swiperWidth, setSwiperWidth] = useState(0);
   const [selected, setSelected] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
-  const [framesVisible, setFramesVisible] = useState(props.framesVisible);
+  const [framesVisible, setFramesVisible] = useState(defaultFramesVisible);
   const swiper = useRef();
-  let pages = Math.ceil(props.frames.length / framesVisible);
+  let pages = Math.ceil(frames.length / framesVisible);
 
   let startX;
   let scrollLeft;
 
-  useEffect(() => {
+  useEffect(() => { // TODO: Fix breakpoints
     let foundBreakpoint = false;
-    for (let i in props.breakpoints) {
+    for (let i in breakpoints) {
       if (pageWidth < +i) {
-        setFramesVisible(props.breakpoints[i]);
+        setFramesVisible(breakpoints[i]);
         foundBreakpoint = true;
         break;
       }
     }
     if (!foundBreakpoint) {
-      setFramesVisible(props.framesVisible);
+      setFramesVisible(defaultFramesVisible);
     }
     setSwiperWidth(swiper.current.offsetWidth);
-  }, [pageWidth]);
+  }, [pageWidth, breakpoints, defaultFramesVisible]);
 
   const mouseMoveHandler = useCallback(
     (e) => {
       const x = e.pageX - swiper.current.offsetLeft;
-      const walk = (x - startX) * (props.scrollSpeed ? props.scrollSpeed : 3);
+      const walk = (x - startX) * (scrollSpeed ? scrollSpeed : 3);
       swiper.current.scrollLeft = scrollLeft - walk;
     },
-    [props.scrollSpeed, startX, scrollLeft]
+    [scrollSpeed, startX, scrollLeft]
   );
 
   const mouseDownHandler = useCallback(
@@ -77,7 +86,7 @@ const Swiper = (props) => {
       swiperInstance.removeEventListener("mousedown", mouseDownHandler);
       swiperInstance.removeEventListener("mouseup", mouseUpHandler);
     };
-  }, [mouseDownHandler, mouseUpHandler]);
+  }, [mouseDownHandler, mouseUpHandler, swiper]);
 
   const scrollTo = (index) => {
     let element = document.getElementById("frame" + index);
@@ -94,81 +103,55 @@ const Swiper = (props) => {
         setSelected(newSelected);
       }
     },
-    [selected, pageWidth, pages]
+    [selected, pageWidth]
   );
 
-  const frames = props.frames.map((frame, index) => (
+  const framesArray = frames.map((frame, index) => (
     <Frame
       id={"frame" + index}
       key={index}
-      width={props.width ? Math.round(swiperWidth / framesVisible) : null}
-      height={props.height}
+      width={width ? Math.round(swiperWidth / framesVisible) : null}
+      height={height}
       framesVisible={framesVisible}
     >
       {frame}
     </Frame>
   ));
-  if (frames.length < framesVisible * pages) {
-    for (let i = 0; i < framesVisible * pages - frames.length; i++) {
-      frames.push(
+  if (framesArray.length < framesVisible * pages) {
+    for (let i = 0; i < framesVisible * pages - framesArray.length; i++) {
+      framesArray.push(
         <Frame
-          id={"frame" + (frames.length + i)}
-          key={frames.length + i}
-          width={props.width ? Math.round(swiperWidth / framesVisible) : null}
-          height={props.height}
+          id={"frame" + (framesArray.length + i)}
+          key={framesArray.length + i}
+          width={width ? Math.round(swiperWidth / framesVisible) : null}
+          height={height}
           framesVisible={framesVisible}
         ></Frame>
       );
     }
   }
 
-  let navigation;
-  if (props.navigation) {
-    navigation = (
-      <div className={styles.navigation}>
-        {props.navigation.map((button, index) => (
-          <button onClick={() => scrollTo(index)} key={index}>
-            {button}
-          </button>
-        ))}
-      </div>
-    );
-  } else {
-    let buttons = [];
-    for (let i = 0; i < pages; i++) {
-      buttons.push(
-        <button
-          onClick={() => {
-            scrollTo(i * framesVisible);
-          }}
-          key={i}
-        >
-          {selected == i ? "●" : "○"}
-        </button>
-      );
-    }
-    navigation = (
-      <div className={`${styles.navigation} ${styles.defaultNavigation}`}>
-        {buttons}
-      </div>
-    );
-  }
-
   let styleObj = {
-    width: props.width ? props.width : "99vw",
-    height: props.height ? props.height : "fit-content",
+    width: width ? width : "99vw",
+    height: height ? height : "fit-content",
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.navigation}>{navigation}</div>
+      <Navigation
+        selected={selected}
+        pages={pages}
+        framesVisible={framesVisible}
+        scrollTo={scrollTo}
+        navigation={props.navigation}
+      />
       <div
         ref={swiper}
         onScroll={scrollHandler}
         style={styleObj}
         className={`${styles.swiper} ${isMouseDown ? styles.grab : ""}`}
       >
-        {frames}
+        {framesArray}
       </div>
     </div>
   );
