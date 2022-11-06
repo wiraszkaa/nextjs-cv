@@ -15,6 +15,18 @@ const getAmount = (scrollX, width) => {
   return amountHelper(scrollX, width, 0);
 };
 
+const getFramesVisible = (pageWidth, breakpoints, defaultWidth) => {
+  if (pageWidth === 0) {
+    return 0;
+  }
+  for (let i in breakpoints) {
+    if (pageWidth < +i) {
+      return breakpoints[i];
+    }
+  }
+  return defaultWidth;
+};
+
 const Swiper = (props) => {
   const {
     framesVisible: defaultFramesVisible,
@@ -28,25 +40,19 @@ const Swiper = (props) => {
   const [swiperWidth, setSwiperWidth] = useState(0);
   const [selected, setSelected] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
-  const [framesVisible, setFramesVisible] = useState(defaultFramesVisible);
+  const [framesVisible, setFramesVisible] = useState(
+    getFramesVisible(pageWidth, breakpoints, defaultFramesVisible)
+  );
   const swiper = useRef();
   let pages = Math.ceil(frames.length / framesVisible);
 
   let startX;
   let scrollLeft;
 
-  useEffect(() => { // TODO: Fix breakpoints
-    let foundBreakpoint = false;
-    for (let i in breakpoints) {
-      if (pageWidth < +i) {
-        setFramesVisible(breakpoints[i]);
-        foundBreakpoint = true;
-        break;
-      }
-    }
-    if (!foundBreakpoint) {
-      setFramesVisible(defaultFramesVisible);
-    }
+  useEffect(() => {
+    setFramesVisible(
+      getFramesVisible(pageWidth, breakpoints, defaultFramesVisible)
+    );
     setSwiperWidth(swiper.current.offsetWidth);
   }, [pageWidth, breakpoints, defaultFramesVisible]);
 
@@ -95,10 +101,7 @@ const Swiper = (props) => {
 
   const scrollHandler = useCallback(
     (e) => {
-      const newSelected = getAmount(
-        swiper.current.scrollLeft,
-        Math.round(pageWidth * 0.99)
-      );
+      const newSelected = getAmount(swiper.current.scrollLeft, swiperWidth);
       if (newSelected !== selected) {
         setSelected(newSelected);
       }
@@ -110,7 +113,7 @@ const Swiper = (props) => {
     <Frame
       id={"frame" + index}
       key={index}
-      width={width ? Math.round(swiperWidth / framesVisible) : null}
+      swiperWidth={swiperWidth}
       height={height}
       framesVisible={framesVisible}
     >
@@ -123,7 +126,7 @@ const Swiper = (props) => {
         <Frame
           id={"frame" + (framesArray.length + i)}
           key={framesArray.length + i}
-          width={width ? Math.round(swiperWidth / framesVisible) : null}
+          swiperWidth={swiperWidth}
           height={height}
           framesVisible={framesVisible}
         ></Frame>
@@ -144,6 +147,7 @@ const Swiper = (props) => {
         framesVisible={framesVisible}
         scrollTo={scrollTo}
         navigation={props.navigation}
+        position={props.navPos}
       />
       <div
         ref={swiper}

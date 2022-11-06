@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-import myPhoto from "../../assets/me.jpg";
+import myPhoto from "../../assets/me.png";
 import styles from "./Me.module.css";
 import photo0 from "../../assets/hobbies/0.jpg";
 import photo1 from "../../assets/hobbies/1.jpg";
-import Slider from "../../components/Slider/Slider";
+import Swiper from "../../components/Swiper/Swiper";
 import InfoDropDown from "../../components/InfoDropDown/InfoDropDown";
 
 const Me = () => {
@@ -38,7 +38,8 @@ const Me = () => {
             <p>
               I have been working as a <b>web developer</b> for{" "}
               <b>Wiraszka Transport and Spedition</b> for a year now. I have
-              been responsible for the company&apos;s website and its maintenance.
+              been responsible for the company&apos;s website and its
+              maintenance.
             </p>
           </div>
         </div>
@@ -52,6 +53,13 @@ const Me = () => {
               second year of my studies. Also, I have finished last year with{" "}
               <b>high grade average</b>.
             </p>
+            <div className={styles.photo}>
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/en/f/f4/Wroclaw_University_of_Technology_logo.jpg"
+                alt="Jakub Wiraszka"
+                layout="fill"
+              />
+            </div>
           </div>
         </div>
 
@@ -59,19 +67,23 @@ const Me = () => {
           <h1>MY HOBBIES</h1>
           <div className={styles.description}>
             <p>
-              In addition to programming, I professionally deal with horse
-              riding. I am a member of the National Team in the eventing
-              discipline. Furthermore, I am amateurly interested in photography
-              and cooking as well as technological innovations of various kinds,
-              mainly robotics, automation, computers, cryptocurrencies and NFT.
+              In addition to programming, I professionally work with horses. I
+              am a member of the National Team in the eventing discipline.
+              Furthermore, I am amateurly interested in photography and cooking
+              as well as technological innovations of various kinds, mainly
+              robotics, automation, computers.
             </p>
             <div className={styles.slider}>
-              <Slider
+              <Swiper
                 frames={[
-                  <Image src={photo0} alt="0" layout="responsive" key="0" />,
-                  <Image src={photo1} alt="1" layout="responsive" key="1" />,
+                  <Image src={photo0} alt="0" layout="fill" key="0" />,
+                  <Image src={photo1} alt="1" layout="fill" key="1" />,
                 ]}
-                frame={{ width: "calc(12rem + 14vw)", aspectRatio: 1 }}
+                width={"calc(12rem + 14vw)"}
+                height={"calc(12rem + 14vw)"}
+                framesVisible={1}
+                scrollSpeed={3}
+                navPos="bottom"
               />
             </div>
           </div>

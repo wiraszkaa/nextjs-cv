@@ -35,7 +35,6 @@
 }
 
 .defaultNavigation {
-  position: relative;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   width: fit-content;
@@ -43,8 +42,13 @@
 
 .defaultNavigation button {
   font-size: larger;
+  color: white;
 }
 
 .grab {
   cursor: grabbing;
+}
+
+.frame {
+  position: relative;
 }

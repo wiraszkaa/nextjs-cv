@@ -19,13 +19,12 @@ a:hover {
 }
 
 h1 {
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   font-size: calc(20px + 2vw);
   color: rgb(37, 4, 4);
 }
 
 p {
-  letter-spacing: -1px;
   font-size: calc(10px + 1vw);
   color: rgb(53, 43, 43);
 }

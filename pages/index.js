@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Home.module.css";
-import meIcon from "../assets/me.jpg";
+import meIcon from "../assets/me.png";
 
 export default function Home() {
   return (

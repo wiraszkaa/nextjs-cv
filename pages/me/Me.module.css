@@ -68,7 +68,9 @@
 
 .slider {
   position: relative;
-  margin: 1vw;
+  border-radius: 40px;
+  overflow: hidden;
+  margin: 1rem;
 }
 
 @keyframes typing {

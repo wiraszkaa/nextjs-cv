@@ -32,7 +32,6 @@ const frames = [
   <SkillList title="Languages" skills={languages} key="Languages" />,
   <SkillList title="Backend" skills={backendSkills} key="Backend" />,
   <SkillList title="Software" skills={softwareSkills} key="Software" />,
-
   <SkillList
     title="Query"
     skills={[{ name: "mySQL", progress: "45%" }]}
