@@ -2,8 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import myPhoto from "../../assets/me.png";
 import styles from "./Me.module.css";
-import photo0 from "../../assets/hobbies/0.jpg";
-import photo1 from "../../assets/hobbies/1.jpg";
+import photo0 from "../../assets/hobbies/0.png";
+import photo1 from "../../assets/hobbies/1.png";
 import Swiper from "../../components/Swiper/Swiper";
 import InfoDropDown from "../../components/InfoDropDown/InfoDropDown";
 
