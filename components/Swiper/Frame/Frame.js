@@ -13,6 +13,7 @@ const Frame = (props) => {
 
   return (
     <div id={props.id} style={styleObj} className={styles.frame}>
+      <div className={styles.frameCover}/>
       {props.children}
     </div>
   );

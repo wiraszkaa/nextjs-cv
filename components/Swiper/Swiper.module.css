@@ -25,7 +25,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .navigation button {
@@ -51,4 +51,12 @@
 
 .frame {
   position: relative;
+}
+
+.frameCover {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  user-select: none;
 }

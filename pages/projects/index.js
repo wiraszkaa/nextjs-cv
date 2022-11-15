@@ -1,22 +1,29 @@
 import Head from "next/head";
 import reactScoresIcon from "../../assets/projects/react_scores.ico";
 import wiraszkaIcon from "../../assets/projects/wiraszka.ico";
+import beerIcon from "../../assets/projects/beer.ico";
 import nextIcon from "../../assets/projects/next.ico";
 import reactIcon from "../../assets/projects/react.ico";
 import ProjectList from "../../components/ProjectList/ProjectList";
 
 const nextProjects = [
   {
-    name: "CV Wiraszka",
-    url: "https://cv-wiraszka.vercel.app/",
-    logo: wiraszkaIcon,
-    description: "Project of a website for CV, which is still in progress.",
+    name: "Beer Madness",
+    url: "https://beermadness.vercel.app//",
+    logo: beerIcon,
+    description: "Find the best beers.",
   },
   {
     name: "Wiraszka",
     url: "https://phumaja.pl/",
     logo: wiraszkaIcon,
     description: "Website for a Wiraszka company.",
+  },
+  {
+    name: "Resume Website",
+    url: "https://cv-wiraszka.vercel.app/",
+    logo: wiraszkaIcon,
+    description: "Resume website, which is still in progress.",
   },
 ];
 

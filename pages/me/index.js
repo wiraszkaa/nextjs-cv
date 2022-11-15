@@ -5,7 +5,6 @@ import styles from "./Me.module.css";
 import photo0 from "../../assets/hobbies/0.png";
 import photo1 from "../../assets/hobbies/1.png";
 import Swiper from "../../components/Swiper/Swiper";
-import InfoDropDown from "../../components/InfoDropDown/InfoDropDown";
 
 const Me = () => {
   return (
@@ -49,9 +48,9 @@ const Me = () => {
           <div className={styles.description}>
             <p>
               Currently, I am studying Applied Computer Science at the{" "}
-              <b>Wrocław University of Science and Technology</b>. I am at the
-              second year of my studies. Also, I have finished last year with{" "}
-              <b>high grade average</b>.
+              <b>Wrocław University of Science and Technology</b>.
+              <br />I am at the second year of my studies. Also, I have finished
+              last year with <b>high grade average</b>.
             </p>
             <div className={styles.photo}>
               <Image
@@ -69,6 +68,7 @@ const Me = () => {
             <p>
               In addition to programming, I professionally work with horses. I
               am a member of the National Team in the eventing discipline.
+              <br />
               Furthermore, I am amateurly interested in photography and cooking
               as well as technological innovations of various kinds, mainly
               robotics, automation, computers.

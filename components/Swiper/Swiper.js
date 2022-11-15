@@ -87,10 +87,12 @@ const Swiper = (props) => {
     const swiperInstance = swiper.current;
     swiperInstance.addEventListener("mousedown", mouseDownHandler);
     swiperInstance.addEventListener("mouseup", mouseUpHandler);
+    swiperInstance.addEventListener("mouseleave", mouseUpHandler);
 
     return () => {
       swiperInstance.removeEventListener("mousedown", mouseDownHandler);
       swiperInstance.removeEventListener("mouseup", mouseUpHandler);
+      swiperInstance.removeEventListener("mouseleave", mouseUpHandler);
     };
   }, [mouseDownHandler, mouseUpHandler, swiper]);
 
